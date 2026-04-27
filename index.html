@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monochrome Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar-wrapper">
+      <nav class="navbar container" aria-label="Primary">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a class="logo" href="#">Monochrome</a>
+
+        <div class="nav-links desktop-only">
+          <a href="#products">Products</a>
+          <a href="#footer">About</a>
+          <a href="#footer">Support</a>
+        </div>
+
+        <div class="nav-actions">
+          <label class="search-wrapper" for="productSearch">
+            <input
+              id="productSearch"
+              type="search"
+              placeholder="Search products"
+              aria-label="Search products"
+            />
+          </label>
+
+          <button id="cartToggleBtn" class="cart-toggle" aria-label="Open cart">
+            <span class="cart-icon">🛍️</span>
+            <span id="cartCount" class="cart-count">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <button id="closeMobileMenu" class="close-menu" aria-label="Close menu">×</button>
+      <a href="#products">Products</a>
+      <a href="#footer">About</a>
+      <a href="#footer">Support</a>
+    </aside>
+    <div id="menuBackdrop" class="backdrop" hidden></div>
+
+    <main id="mainContent">
+      <section class="hero container">
+        <div class="hero-content">
+          <p class="hero-kicker">New Essentials</p>
+          <h1>Elevate Your Everyday</h1>
+          <p>
+            Thoughtful design for modern living — discover curated products made
+            to fit your routine.
+          </p>
+          <a href="#products" class="btn btn-primary">Shop Now</a>
+        </div>
+      </section>
+
+      <section id="products" class="products-section container">
+        <div class="section-header">
+          <h2>Featured Products</h2>
+          <div id="categoryFilters" class="filter-group" role="tablist" aria-label="Filter products by category">
+            <button class="filter-btn active" data-category="All">All</button>
+            <button class="filter-btn" data-category="Tech">Tech</button>
+            <button class="filter-btn" data-category="Wearables">Wearables</button>
+          </div>
+        </div>
+
+        <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+        <p id="noResults" class="no-results" hidden>No products match your search.</p>
+      </section>
+    </main>
+
+    <section id="checkoutSection" class="checkout-section container" hidden>
+      <div class="checkout-card">
+        <h2>Checkout</h2>
+        <p>Complete your order details below.</p>
+        <form id="checkoutForm" class="checkout-form">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Address
+            <input type="text" name="address" required />
+          </label>
+
+          <label>
+            Phone
+            <input type="tel" name="phone" required />
+          </label>
+
+          <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+        <p id="thankYouMessage" class="thank-you" hidden>
+          Thank you! Your order has been placed successfully.
+        </p>
+      </div>
+    </section>
+
+    <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart" class="close-menu" aria-label="Close cart">×</button>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="cart-footer">
+        <p>Total: <strong id="cartTotal">$0.00</strong></p>
+        <button id="checkoutBtn" class="btn btn-primary" type="button">Proceed to Checkout</button>
+      </div>
+    </aside>
+
+    <section id="productModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeModal" class="close-menu" aria-label="Close product details">×</button>
+        <div class="modal-grid">
+          <div class="modal-image-wrap">
+            <img id="modalImage" src="" alt="" />
+          </div>
+          <div class="modal-details">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <p id="modalPrice" class="modal-price"></p>
+            <button id="modalAddToCart" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Monochrome</h4>
+          <p>Minimal essentials for daily life.</p>
+        </div>
+        <div>
+          <h5>Shop</h5>
+          <a href="#">New Arrivals</a>
+          <a href="#">Best Sellers</a>
+          <a href="#">Collections</a>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <a href="#">About</a>
+          <a href="#">Journal</a>
+          <a href="#">Careers</a>
+        </div>
+        <div>
+          <h5>Support</h5>
+          <a href="#">Contact</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
